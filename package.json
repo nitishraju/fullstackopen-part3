@@ -1,0 +1,20 @@
+{
+  "name": "phonebook-backend",
+  "version": "0.0.1",
+  "description": "Backend for the phonebook application from Fullstack Open's 3rd part.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: No test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nitishraju/fullstackopen-part3.git"
+  },
+  "author": "Nitish Raju",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nitishraju/fullstackopen-part3/issues"
+  },
+  "homepage": "https://github.com/nitishraju/fullstackopen-part3#readme"
+}
