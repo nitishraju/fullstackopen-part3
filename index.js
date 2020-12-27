@@ -1,3 +1,4 @@
+const { response } = require('express');
 const express = require('express');
 const app = express()
 
@@ -53,6 +54,22 @@ app.delete('/api/persons/:id', (req, res) => {
 })
 
 app.post('/api/persons', (req, res) => {
+  const responseObj = req.body
+
+  const findDuplicate = phoneBook.find(personObj => personObj.name == responseObj.name)
+  let errorMsg = findDuplicate
+    ? 'name must be unique'
+    : null
+  errorMsg = responseObj.name === undefined || responseObj.number == undefined
+    ? 'name or number is missing'
+    : errorMsg
+
+  if (errorMsg) {
+    return res.status(400).json({
+      error: errorMsg
+    })
+  }
+
   const randomId = Math.floor(Math.random()*1001)
   let newPerson = {id: randomId, ...req.body}
   phoneBook = [...phoneBook, newPerson]
