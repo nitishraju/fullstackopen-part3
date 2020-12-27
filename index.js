@@ -11,6 +11,7 @@ const unknownEndpoint = (request, response) => {
 }
 
 app.use(express.json())
+app.use(express.static('build'))
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms :post-data", {
   skip: (req, res) => req.method !== 'POST'
 }))
