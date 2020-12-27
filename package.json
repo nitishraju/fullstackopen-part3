@@ -5,16 +5,23 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: No test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/nitishraju/fullstackopen-part3.git"
+    "url": "https://github.com/nitishraju/fullstackopen-part3"
   },
   "author": "Nitish Raju",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nitishraju/fullstackopen-part3/issues"
   },
-  "homepage": "https://github.com/nitishraju/fullstackopen-part3#readme"
+  "homepage": "https://github.com/nitishraju/fullstackopen-part3#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
 }
