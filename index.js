@@ -3,7 +3,7 @@ const app = express()
 
 app.use(express.json())
 
-let persons = [
+let phoneBook = [
   {
     id: 1,
     name: "Arto Hellas",
@@ -26,16 +26,38 @@ let persons = [
   }
 ]
 
-app.get('/api/persons', (req, res) => {
-  res.json(persons)
-})
-
 app.get('/info', (req, res) => {
   const date = new Date
-  const info= `<p>Phonebook has info for ${persons.length} people.</p>
+  const info= `<p>Phonebook has info for ${phoneBook.length} people.</p>
   <p>${date}</p>`
 
   res.send(info)
+})
+
+app.get('/api/persons', (req, res) => {
+  res.json(phoneBook)
+})
+
+app.get('/api/persons/:id', (req, res) => {
+  const id = Number(req.params.id)
+  const person = phoneBook.filter((personObj) => personObj.id === id)
+
+  res.json(person)
+})
+
+app.delete('/api/persons/:id', (req, res) => {
+  const id = Number(req.params.id)
+  phoneBook = phoneBook.filter(personObj => personObj.id !== id)
+  console.log(phoneBook);
+  res.status(204).end()
+})
+
+app.post('/api/persons', (req, res) => {
+  const randomId = Math.floor(Math.random()*1001)
+  let newPerson = {id: randomId, ...req.body}
+  phoneBook = [...phoneBook, newPerson]
+
+  res.json(newPerson)
 })
 
 const PORT = 3001
