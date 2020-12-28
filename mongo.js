@@ -1,4 +1,3 @@
-const { response } = require('express');
 const mongoose = require('mongoose');
 
 if (process.argv.length < 3) {
@@ -14,6 +13,7 @@ if (process.argv.length > 5) {
 const password = process.argv[2]
 const numArgs = process.argv.length
 
+
 const url = `mongodb+srv://nitish:${password}@cluster0.gtg1i.mongodb.net/phonebook-app?retryWrites=true&w=majority`
 
 const mongooseSettings = { 
@@ -26,7 +26,6 @@ const mongooseSettings = {
 mongoose.connect(url, mongooseSettings)
 
 const personSchema = new mongoose.Schema({
-  id: Number,
   name: String,
   number: String
 })
@@ -46,7 +45,6 @@ if (numArgs === 3) {
 } else
 if (numArgs === 5) {
   const newPerson = new Person({
-    id: Math.floor(Math.random()*1001),
     name: process.argv[3],
     number: process.argv[4]
   })
