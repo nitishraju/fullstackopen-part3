@@ -8,4 +8,6 @@ The course covers development, testing, configuration and environment management
 
 ## In this repo:
 
-My solutions to parts 3 of the course can be found in this repo.
+Part 3 of the course requires deploying the app being built to the internet. The link to this app can be found below:
+
+[Fullstack Open Part 3 - Phonebook](https://blooming-wildwood-83844.herokuapp.com/ "A Phonebook App")
