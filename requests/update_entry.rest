@@ -2,6 +2,6 @@ PUT http://localhost:3001/api/persons/5fea6fe39746b322f0b1f73c
 Content-Type: application/json
 
 {
-    "name": "More Placeholder Content",
-    "number": "4M4Z1NG"
+    "name": "Placeholder Name 2",
+    "number": "4M4Z1NGW0W"
 }

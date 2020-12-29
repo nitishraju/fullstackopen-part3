@@ -67,8 +67,9 @@ app.post('/api/persons', (request, response, next) => {
   })
   
   newPerson.save()
-    .then(savedEntry => {
-      response.json(savedEntry.toJSON())
+    .then(savedEntry => savedEntry.toJSON())
+    .then(formattedPerson => {
+      response.json(formattedPerson)
     })
     .catch(error => next(error))
 })
@@ -80,9 +81,14 @@ app.put('/api/persons/:id', (request, response, next) => {
     number: entryContent.number
   }
 
-  Person.findByIdAndUpdate(request.params.id, updatedEntry, { new: true })
+  const updateOpts = { new: true, runValidators: true, context: 'query' }
+  Person.findByIdAndUpdate(request.params.id, updatedEntry, updateOpts)
     .then(updatedPerson => {
-      response.json(updatedPerson)
+      if (updatedPerson) {
+        response.json(updatedPerson)
+      } else {
+        response.status(404).end()
+      }
     })
     .catch(error => next(error))
 })
@@ -98,6 +104,7 @@ const errorHandler = (error, request, response, next) => {
     return response.status(400).send({error: 'malformatted id'})
   } else
   if (error.name === "ValidationError") {
+    console.log(request.body)
     return response.status(400).json({error: error.message})
   }
 
