@@ -14,13 +14,16 @@ app.use(morgan(":method :url :status :res[content-length] - :response-time ms :p
   skip: (request, response) => request.method !== 'POST'
 }))
 
-// app.get('/info', (request, response) => {
-//   const date = new Date
-//   const info= `<p>Phonebook has info for ${phoneBook.length} people.</p>
-//   <p>${date}</p>`
+app.get('/info', (request, response) => {
+  const date = new Date
+  Person.collection.countDocuments()
+    .then(count => {
+      const info = `<p>Phonebook has info for ${count} people.</p>
+      <p>${date}</p>`
 
-//   response.send(info)
-// })
+      response.send(info)
+    })
+})
 
 app.get('/api/persons', (request, response) => {
   Person.find({})
