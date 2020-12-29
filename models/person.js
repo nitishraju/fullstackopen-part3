@@ -1,12 +1,11 @@
-const path = require('path')
 require('dotenv').config()
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
 
 const url = process.env.MONGO_URI
 console.log(url)
 
-const mongooseSettings = { 
+const mongooseSettings = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -14,12 +13,12 @@ const mongooseSettings = {
 }
 
 mongoose.connect(url, mongooseSettings)
-    .then(response => {
-        console.log('Connected to MongoDB successfully.')
-    })
-    .catch(error => {
-        console.log('Connection to MongoDB failed! Error:', error.message)
-    })
+  .then(() => {
+    console.log('Connected to MongoDB successfully.')
+  })
+  .catch(error => {
+    console.log('Connection to MongoDB failed! Error:', error.message)
+  })
 
 const personSchema = new mongoose.Schema({
   name: {

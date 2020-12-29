@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 if (process.argv.length < 3) {
   console.log('Please provide the password as an argument: node mongo.js <password>')
@@ -16,7 +16,7 @@ const numArgs = process.argv.length
 
 const url = `mongodb+srv://nitish:${password}@cluster0.gtg1i.mongodb.net/phonebook-app?retryWrites=true&w=majority`
 
-const mongooseSettings = { 
+const mongooseSettings = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -34,14 +34,14 @@ const Person = mongoose.model('Person', personSchema)
 
 if (numArgs === 3) {
   Person.find({}).then(result => {
-    console.log('Phonebook:');
+    console.log('Phonebook:')
     result.forEach(person => {
       console.log(`${person.name}: ${person.number}`)
     })
     mongoose.connection.close()
     process.exit(0)
   })
-  
+
 } else
 if (numArgs === 5) {
   const newPerson = new Person({
