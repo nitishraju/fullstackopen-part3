@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path')
 const app = express()
 
 const Person = require('./models/person')
@@ -9,7 +10,7 @@ morgan.token('post-data', (request) => {
 }) 
 
 app.use(express.json())
-app.use(express.static('build'))
+app.use(express.static(path.join(__dirname, 'build')))
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms :post-data", {
   skip: (request, response) => request.method !== 'POST'
 }))
