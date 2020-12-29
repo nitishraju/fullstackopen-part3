@@ -1,1 +1,1 @@
-GET https://blooming-wildwood-83844.herokuapp.com/api/notes
+GET https://blooming-wildwood-83844.herokuapp.com/api/persons
