@@ -1,1 +1,1 @@
-GET http://localhost:3001/api/persons/
+GET https://blooming-wildwood-83844.herokuapp.com/api/notes
