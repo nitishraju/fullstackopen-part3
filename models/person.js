@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator')
 
 const url = process.env.MONGO_URI
+console.log(url)
 
 const mongooseSettings = { 
   useNewUrlParser: true,
