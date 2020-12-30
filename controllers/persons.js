@@ -41,16 +41,16 @@ personsRouter.delete('/:id', (request, response, next) => {
 })
 
 personsRouter.post('/', (request, response, next) => {
-  const responseObj = request.body
-  if (responseObj.name === undefined || responseObj.number === undefined) {
+  const requestBody = request.body
+  if (requestBody.name === undefined || requestBody.number === undefined) {
     return response.status(400).json({
       error: 'name or number field was not provided'
     })
   }
 
   const newPerson = new Person({
-    name: responseObj.name,
-    number: responseObj.number
+    name: requestBody.name,
+    number: requestBody.number
   })
 
   newPerson.save()
