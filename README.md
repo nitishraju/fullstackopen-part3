@@ -8,6 +8,6 @@ The course covers development, testing, configuration and environment management
 
 ## In this repo:
 
-Part 3 of the course requires deploying the app being built to the internet. The link to this app can be found below:
+Part 3 of the course covers REST API functionality using Express, MongoDB database integration, and application deployment using Heroku.
 
-[Fullstack Open Part 3 - Phonebook](https://blooming-wildwood-83844.herokuapp.com/ "A Phonebook App")
+The deployed app can be found here: [Fullstack Open Part 3 - Phonebook](https://blooming-wildwood-83844.herokuapp.com/ "A Phonebook App")
